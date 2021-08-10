@@ -1,10 +1,10 @@
 <app-timeline
-  [leftContainer]="customTabButtons"
-  [rightContainer]="customTabButtons"
+  [leftContainer]="customLeftButtons"
+  [rightContainer]="customRightContainer"
   [data]="data"
 >
 </app-timeline>
-<ng-template #customTabButtons>
+<ng-template #customLeftButtons>
   <div class="custom-class">
     <button class="tab-button" (click)="login()">hola mundo</button>
     <button class="tab-button" (click)="signUp()">comida</button>
