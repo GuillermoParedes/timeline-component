@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
-import { logging } from 'protractor';
-import { TTimeline } from './timeline/types';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { TTimeline } from './types';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-timeline',
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.scss'],
 })
-export class AppComponent {
-  title = 'timeline-tutator';
-  data: TTimeline[] = [
+export class TimelineComponent implements OnInit {
+  events: TTimeline[] = [
     {
       id: 0,
       date: {
@@ -55,11 +53,26 @@ export class AppComponent {
       icon: 'mdi-alert-circle-outline',
       active: true,
     },
+    {
+      id: 3,
+      date: {
+        day: 'Sunday',
+        date: 'August 8, 2021',
+        hour: '12:30pm',
+      },
+      content: {
+        tags: ['Theropoda', 'Sauropoda', 'Teyuwasu'],
+        title: 'Dinasours Roamed the Eart',
+        description: '🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉',
+      },
+      icon: 'mdi-alert-circle-outline',
+      active: true,
+    },
   ];
-  login() {
-    console.log('Hola mundo');
-  }
-  signUp() {
-    console.log('signUp');
-  }
+  @Input() leftContainer?: TemplateRef<any>;
+  @Input() rightContainer?: TemplateRef<any>;
+  @Input() data?: TTimeline[] = [];
+  constructor() {}
+
+  ngOnInit(): void {}
 }

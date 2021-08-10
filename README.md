@@ -1,27 +1,69 @@
-# TimelineTutator
+# Component Documentation TimeLine
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+> This component is used into SICAMEX project
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+First, import the module into your module or where that you want
 
-## Code scaffolding
+```ts
+import { TimelineModule } from './timeline/timeline.module';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
 
-## Build
+  imports: [TimelineModule, ... ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Default component
 
-## Running unit tests
+```html
+<app-timeline [data]="data"> </app-timeline>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Default component](src/assets/timeline-default.png)
 
-## Running end-to-end tests
+#### Custom component
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```html
+<app-timeline
+  [leftContainer]="customTabButtons"
+  [rightContainer]="customTabButtons"
+  [data]="data"
+>
+</app-timeline>
+<ng-template #customTabButtons>
+  <div class="custom-class">
+    <button class="tab-button" (click)="login()">hola mundo</button>
+    <button class="tab-button" (click)="signUp()">comida</button>
+  </div>
+</ng-template>
 
-## Further help
+<ng-template #customRightContainer>
+  <div class="custom-class">
+    <button class="tab-button" (click)="login()">hola mundo</button>
+    <button class="tab-button" (click)="signUp()">comida</button>
+  </div>
+</ng-template>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Custom component](src/assets/timeline-custom.png)
+
+### Props
+
+Props are using in the component.
+
+**Required props are marked with `*`.**
+
+| Name             | Type        | Default | Description                                                                              |
+| ---------------- | ----------- | ------- | ---------------------------------------------------------------------------------------- |
+| `data`\*         | `TTimeline` | `[]`    | Data using into the component                                                            |
+| `leftContainer`  | `HTML`      | `0`     | used to reference so that it is rendered on the left side of the component on side left  |
+| `rightContainer` | `HTML`      | `0`     | used to reference so that it is rendered on the left side of the component on side right |
+
+### Author
+
+[@Codevs](www.twitter/codevs_gd)
