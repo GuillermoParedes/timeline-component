@@ -4,18 +4,23 @@
   [data]="data"
 >
 </app-timeline>
-<ng-template #customLeftButtons>
+<ng-template #customLeftButtons let-leftContent="leftContent">
   <div class="custom-class">
-    <button class="tab-button" (click)="login()">hola mundo</button>
-    <button class="tab-button" (click)="signUp()">comida</button>
+    <span class="btn-custom" (click)="login()">{{ leftContent.day }}</span>
+    <h3 class="tab-button" (click)="signUp()">
+      {{ leftContent.date }}
+    </h3>
+    <span class="span-custom" (click)="signUp()">
+      {{ leftContent.hour }}
+    </span>
   </div>
 </ng-template>
 
 <ng-template #customRightContainer>
   <div class="custom-class">
-    <button class="tab-button" (click)="login()">hola mundo</button>
-    <button class="tab-button" (click)="signUp()">comida</button>
+    <button (click)="login()">hola mundo</button>
+    <button (click)="signUp()">comida</button>
   </div>
 </ng-template>
 
-<app-timeline [data]="data"> </app-timeline>
+<!-- <app-timeline [data]="data" [order]="TOrder.upward"> </app-timeline> -->

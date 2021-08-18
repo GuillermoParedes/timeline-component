@@ -30,15 +30,16 @@ export class AppModule {}
 
 ```html
 <app-timeline
-  [leftContainer]="customTabButtons"
-  [rightContainer]="customTabButtons"
+  [leftContainer]="customLeftContainer"
+  [rightContainer]="customRightContainer"
   [data]="data"
 >
 </app-timeline>
-<ng-template #customTabButtons>
+<ng-template #customLeftContainer let-leftContent="leftContent">
   <div class="custom-class">
-    <button class="tab-button" (click)="login()">hola mundo</button>
-    <button class="tab-button" (click)="signUp()">comida</button>
+    <span class="tab-button" (click)="login()">{{ leftContent.day }}</span>
+    <h3 class="tab-button" (click)="login()">{{ leftContent.date }}</h3>
+    <span class="tab-button" (click)="login()">{{ leftContent.right }}</span>
   </div>
 </ng-template>
 

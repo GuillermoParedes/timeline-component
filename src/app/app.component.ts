@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { logging } from 'protractor';
-import { TTimeline } from './timeline/types';
+import { TOrder, TTimeline } from './timeline/types';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,12 @@ export class AppComponent {
   data: TTimeline[] = [
     {
       id: 0,
-      date: {
+      leftContent: {
         day: 'Friday',
         date: 'August 8, 2021',
         hour: '08:30am',
       },
-      content: {
+      rightContent: {
         tags: ['Theropoda', 'Sauropoda', 'Teyuwasu'],
         title: 'Dinasours Roamed the Eart',
         description: '🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉',
@@ -27,12 +27,12 @@ export class AppComponent {
     },
     {
       id: 1,
-      date: {
+      leftContent: {
         day: 'Saturday',
         date: 'August 8, 2021',
         hour: '10:30am',
       },
-      content: {
+      rightContent: {
         tags: ['Theropoda', 'Sauropoda', 'Teyuwasu'],
         title: 'Dinasours Roamed the Eart',
         description: '🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉',
@@ -42,12 +42,12 @@ export class AppComponent {
     },
     {
       id: 2,
-      date: {
+      leftContent: {
         day: 'Sunday',
         date: 'August 8, 2021',
         hour: '12:30pm',
       },
-      content: {
+      rightContent: {
         tags: ['Theropoda', 'Sauropoda', 'Teyuwasu'],
         title: 'Dinasours Roamed the Eart',
         description: '🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉🐱‍🐉',
@@ -61,5 +61,9 @@ export class AppComponent {
   }
   signUp() {
     console.log('signUp');
+  }
+
+  get TOrder() {
+    return TOrder;
   }
 }

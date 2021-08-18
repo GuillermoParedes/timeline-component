@@ -1,14 +1,19 @@
+export enum TOrder {
+  upward,
+  downward,
+}
+
 // Interface Main
 export interface TTimeline {
   id: string | number;
-  date: TDate;
-  content: TContent;
+  leftContent: ILeftContent;
+  rightContent: IRightContent;
   icon: string;
   active: boolean;
 }
 
 // Interfaces secondary
-export interface TDate {
+export interface ILeftContent {
   day: string;
   date: string;
   hour: string;
@@ -20,7 +25,7 @@ export interface TFile {
   url: string;
 }
 
-export interface TContent {
+export interface IRightContent {
   tags: string[];
   title: string;
   description: string;

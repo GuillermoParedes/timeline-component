@@ -2,23 +2,29 @@
   <!-- Left Container -->
   <div class="timeline--container-left">
     <ng-container
-      *ngTemplateOutlet="leftContainer ? leftContainer : defaultLeftContainer"
+      [ngTemplateOutlet]="leftContainer ? leftContainer : defaultLeftContainer"
+      [ngTemplateOutletContext]="item"
     >
     </ng-container>
     <ng-template #defaultLeftContainer>
-      <span>{{ item.date.day }}</span>
-      <h3>{{ item.date.date }}</h3>
-      <span>{{ item.date.hour }}</span>
+      <span>{{ item.leftContent.day }}</span>
+      <h3>{{ item.leftContent.date }}</h3>
+      <span>{{ item.leftContent.hour }}</span>
     </ng-template>
   </div>
 
   <!-- Line Container -->
+  <!-- <div class="line">
+    <i class="mdi mdi-alert-circle-outline"></i>
+    <hr />
+  </div> -->
+
+  <!-- Right Container -->
+  <!-- <div class="container--relation-right-container"> -->
   <div class="line">
     <i class="mdi mdi-alert-circle-outline"></i>
     <hr />
   </div>
-
-  <!-- Right Container -->
   <div class="timeline--container-right">
     <ng-container
       *ngTemplateOutlet="
@@ -28,8 +34,9 @@
     </ng-container>
 
     <ng-template #defaultRightContainer>
-      <h3>{{ item.content.title }}</h3>
-      <p>{{ item.content.description }}</p>
+      <h3>{{ item.rightContent.title }}</h3>
+      <p>{{ item.rightContent.description }}</p>
     </ng-template>
   </div>
+  <!-- </div> -->
 </section>
