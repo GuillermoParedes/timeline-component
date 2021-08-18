@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
-import { TOrder, TTimeline } from './types';
+import { TTimeline } from './types';
 
 @Component({
   selector: 'app-timeline',
@@ -10,8 +10,7 @@ export class TimelineComponent implements OnInit {
   @Input() leftContainer?: TemplateRef<any>;
   @Input() rightContainer?: TemplateRef<any>;
   @Input() data?: TTimeline[] = [];
-  @Input() order?: TOrder = TOrder.upward;
-
+  @Input() reverse?: boolean = false;
   constructor() {}
 
   ngOnInit(): void {
@@ -22,7 +21,7 @@ export class TimelineComponent implements OnInit {
    * @description Change the order if order is 'upward' the order is like how to come, but order is 'downward' the order is recerse
    */
   changeOrder() {
-    if (this.data && this.order == TOrder.downward) {
+    if (this.data && this.reverse) {
       this.data = this.data.reverse();
     }
   }

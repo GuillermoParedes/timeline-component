@@ -2,6 +2,7 @@
   [leftContainer]="customLeftButtons"
   [rightContainer]="customRightContainer"
   [data]="data"
+  [reverse]="true"
 >
 </app-timeline>
 <ng-template #customLeftButtons let-leftContent="leftContent">
@@ -23,4 +24,4 @@
   </div>
 </ng-template>
 
-<!-- <app-timeline [data]="data" [order]="TOrder.upward"> </app-timeline> -->
+<app-timeline [data]="data" [reverse]="false"> </app-timeline>
