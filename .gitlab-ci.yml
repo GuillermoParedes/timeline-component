@@ -1,14 +1,9 @@
 image: node:10.16.0
 
-# include:
-#   - template: Code-Quality.gitlab-ci.yml
-#   - template: SAST.gitlab-ci.yml
-#   - template: Container-Scanning.gitlab-ci.yml
-#   - template: Dependency-Scanning.gitlab-ci.yml
-
 stages:
   - install
   - test
+
   - build
   - deploy
 
@@ -24,20 +19,25 @@ install:
     paths:
       - node_modules/
 
-tests:
+test:
   stage: test
-  variables:
-    CHROME_BIN: google-chrome
-  dependencies:
-    - install
-  before_script:
-    - apt-get update && apt-get install -y apt-transport-https
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-    - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    - apt-get update && apt-get install -y google-chrome-stable
   script:
-    - npm run test:ci
-  coverage: '/Statements.*?(\d+(?:\.\d+)?)%/'
+    - npm run test
+
+# testsci:
+#   stage: test
+#   variables:
+#     CHROME_BIN: google-chrome
+#   dependencies:
+#     - install
+#   before_script:
+#     - apt-get update && apt-get install -y apt-transport-https
+#     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+#     - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+#     - apt-get update && apt-get install -y google-chrome-stable
+#   script:
+#     - npm run test:ci
+#   coverage: '/Statements.*?(\d+(?:\.\d+)?)%/'
 
 build:
   stage: build
