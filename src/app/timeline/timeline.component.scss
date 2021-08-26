@@ -58,7 +58,7 @@ img {
 
   .timeline--container-right {
     width: 70%;
-    padding: 1ch;
+    padding: 1.5ch;
     background: azure;
     color: tomato;
     position: relative;
@@ -74,6 +74,14 @@ img {
       display: inline-block;
       vertical-align: middle;
     }
+  }
+
+  .timeline--container-tags {
+    font-size: 0.6rem;
+    border: 1px solid;
+    margin: 1ch 0.5ch;
+    padding: 0.7ch;
+    border-radius: 20px;
   }
 }
 

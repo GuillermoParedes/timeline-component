@@ -1,4 +1,4 @@
-<app-timeline
+<!-- <app-timeline
   [leftContainer]="customLeftButtons"
   [rightContainer]="customRightContainer"
   [data]="data"
@@ -22,6 +22,12 @@
     <button (click)="login()">hola mundo</button>
     <button (click)="signUp()">comida</button>
   </div>
-</ng-template>
 
-<app-timeline [data]="data" [reverse]="false"> </app-timeline>
+</ng-template> -->
+
+<app-timeline
+  [data]="data"
+  [reverse]="true"
+  [fromServer]="'ThAssistances/timelineData'"
+>
+</app-timeline>

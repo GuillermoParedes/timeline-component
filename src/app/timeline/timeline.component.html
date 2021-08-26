@@ -33,6 +33,12 @@
     </ng-container>
 
     <ng-template #defaultRightContainer>
+      <span
+        *ngFor="let tag of item.rightContent.tags"
+        class="timeline--container-tags"
+      >
+        {{ tag }}
+      </span>
       <h3>{{ item.rightContent.title }}</h3>
       <p>{{ item.rightContent.description }}</p>
     </ng-template>
